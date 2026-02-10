@@ -15,25 +15,30 @@
         This means replace this div with nav sibling in the DOM, only on the smallest device 1:
         <div replaceSibling="nav" atSize="1">Content here</div>
     -->
-    <header>
+    <!-- <header>
         <nav refelem="navElem">NAV element</nav>
         <div replacesibling="navElem" atsize="1">DIV element</div>
     </header>
     <main>
         <aside refelem="asideElem">ASIDE element</aside>
         <section replacesibling="asideElem" atsize="3">SECTION element</section>
-    </main> 
-    <!-- <footer>
-        <code refelem="navElem">CODE element</code>
-        <div replacesibling="navElem" atsize="2">DIV 2 element</div>
-    </footer> -->
+    </main> -->
 
-        <!-- // This is for "atsize" -->
+
+    <!-- // This is for "upToSize"  do not touch-->
     <!-- 
-        This means replace this div with nav sibling in the DOM, only on the smallest device 1:
-        <div replaceSibling="nav" atSize="1">Content here</div>
+        This means replace this div with nav sibling in the DOM, from the smallest device 1 up to device 3:
+        e.g. <div replaceSibling="nav" uptosize="3">Content here</div>
     -->
-   
+    <header>
+        <nav refelem="navElem">NAV element</nav>
+        <div replacesibling="navElem" uptosize="2">DIV element</div>
+    </header>
+    <main>
+        <aside refelem="asideElem">ASIDE element</aside>
+        <section replacesibling="asideElem" uptosize="3">SECTION element</section>
+    </main>
+
     
     <script type="module" src="./main.js"></script>
 

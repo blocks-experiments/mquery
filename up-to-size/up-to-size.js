@@ -1,25 +1,24 @@
 import { clientState } from '../client.state.js';
 import { validateSwapPairs } from '../validate.js';
 
-
-// --- INITIALIZATION: Build swap state in clientState BEFORE starting watchers ---
-export function initializeSwaps() {
+// --- INITIALIZATION: Build swap state in clientState for uptosize ---
+export function initializeUpToSizeSwaps() {
     validateSwapPairs();
 
-    document.querySelectorAll('[replacesibling][atsize]').forEach(replacer => {
+    document.querySelectorAll('[replacesibling][uptosize]').forEach(replacer => {
         const refAttr = replacer.getAttribute('replacesibling');
         const refelem = document.querySelector(`[refelem="${refAttr}"]`);
         
         if (refelem) {
             // Store swap data in clientState with insertion point info
-            clientState.update(`swap_${refAttr}`, {
+            clientState.update(`uptosize_${refAttr}`, {
                 replacer,
                 refelem,
-                atSize: parseInt(replacer.getAttribute('atsize')),
+                upToSize: parseInt(replacer.getAttribute('uptosize')),
                 parent: refelem.parentNode,
                 nextSibling: refelem.nextSibling,
                 refAttr,
-                type: 'atsize'
+                type: 'uptosize'
             });
 
             // Remove replacer from DOM - we'll add it back when needed
@@ -28,16 +27,16 @@ export function initializeSwaps() {
     });
 }
 
-export function performSwap(active) {
+export function performUpToSizeSwap(active) {
     Object.values(clientState.result).forEach(item => {
-        // Filter to only atsize items
-        if (item.type !== 'atsize') return;
+        // Filter to only uptosize items
+        if (item.type !== 'uptosize') return;
         
-        const { replacer, refelem, atSize, parent, nextSibling } = item;
+        const { replacer, refelem, upToSize, parent, nextSibling } = item;
         
         // Determine which element should be visible
-        // Show replacer ONLY when we're at the specified breakpoint
-        const shouldShowReplacer = active.pos === atSize;
+        // Show replacer when we're UP TO and including the specified breakpoint
+        const shouldShowReplacer = active.pos <= upToSize;
         const elementToShow = shouldShowReplacer ? replacer : refelem;
         const elementToHide = shouldShowReplacer ? refelem : replacer;
 

@@ -1,6 +1,7 @@
 import { clientState } from './client.state.js';
 import { _device } from './config.base.js';
 import { initializeSwaps, performSwap } from './at-size/at-size.js';
+import { initializeUpToSizeSwaps, performUpToSizeSwap } from './up-to-size/up-to-size.js';
 
 function watchBreakpoints(config, callback) {
   // Convert object to a sorted array to ensure we calculate ranges correctly
@@ -41,9 +42,13 @@ function watchBreakpoints(config, callback) {
 
 // Initialize swaps when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeSwaps);
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeSwaps();
+        initializeUpToSizeSwaps();
+    });
 } else {
     initializeSwaps();
+    initializeUpToSizeSwaps();
 }
 
 // Setup breakpoint watcher
@@ -56,4 +61,5 @@ watchBreakpoints(_device.sizes, (active) => {
     document.body.setAttribute('data-swap-ready', 'true');
 
     performSwap(active);
+    performUpToSizeSwap(active);
 });

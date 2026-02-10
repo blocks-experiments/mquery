@@ -30,16 +30,28 @@
         This means replace this div with nav sibling in the DOM, from the smallest device 1 up to device 3:
         e.g. <div replaceSibling="nav" uptosize="3">Content here</div>
     -->
-    <header>
+    <!-- <header>
         <nav refelem="navElem">NAV element</nav>
         <div replacesibling="navElem" uptosize="2">DIV element</div>
     </header>
     <main>
         <aside refelem="asideElem">ASIDE element</aside>
         <section replacesibling="asideElem" uptosize="3">SECTION element</section>
+    </main> -->
+
+    <!-- 
+        This means replace this div with nav sibling in the DOM, from device 3 to the biggest device 5:
+        e.g. <div replaceSibling="nav" fromsize="3">Content here</div>
+    -->
+    <header>
+        <nav refelem="navElem">NAV element</nav>
+        <div replacesibling="navElem" fromsize="2">DIV element</div>
+    </header>
+    <main>
+        <aside refelem="asideElem">ASIDE element</aside>
+        <section replacesibling="asideElem" fromsize="3">SECTION element</section>
     </main>
 
-    
     <script type="module" src="./main.js"></script>
 
 </body>

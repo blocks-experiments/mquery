@@ -3,6 +3,7 @@ import { _device } from './config.base.js';
 import { initializeSwaps, performSwap } from './at-size/at-size.js';
 import { initializeUpToSizeSwaps, performUpToSizeSwap } from './up-to-size/up-to-size.js';
 import { initializeFromSizeSwaps, performFromSizeSwap } from './from-size/from-size.js';
+import { initializeWithinSizeRangeSwaps, performWithinSizeRangeSwap } from './within-size-range/within-size-range.js';
 
 function watchBreakpoints(config, callback) {
   // Convert object to a sorted array to ensure we calculate ranges correctly
@@ -47,11 +48,13 @@ if (document.readyState === 'loading') {
         initializeSwaps();
         initializeUpToSizeSwaps();
         initializeFromSizeSwaps();
+        initializeWithinSizeRangeSwaps();
     });
 } else {
     initializeSwaps();
     initializeUpToSizeSwaps();
     initializeFromSizeSwaps();
+    initializeWithinSizeRangeSwaps();
 }
 
 // Setup breakpoint watcher
@@ -66,4 +69,5 @@ watchBreakpoints(_device.sizes, (active) => {
     performSwap(active);
     performUpToSizeSwap(active);
     performFromSizeSwap(active);
+    performWithinSizeRangeSwap(active);
 });

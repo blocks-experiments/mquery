@@ -3,7 +3,7 @@ import { validateSwapPairs } from '../validate.js';
 
 
 // --- INITIALIZATION: Build swap state in clientState BEFORE starting watchers ---
-export function initializeSwaps() {
+export function initializeAtSizeSwaps() {
     validateSwapPairs();
 
     document.querySelectorAll('[replacesibling][atsize]').forEach(replacer => {
@@ -12,7 +12,7 @@ export function initializeSwaps() {
         
         if (refelem) {
             // Store swap data in clientState with insertion point info
-            clientState.update(`swap_${refAttr}`, {
+            clientState.update(`atsize_${refAttr}`, {
                 replacer,
                 refelem,
                 atSize: parseInt(replacer.getAttribute('atsize')),
@@ -28,7 +28,7 @@ export function initializeSwaps() {
     });
 }
 
-export function performSwap(active) {
+export function performAtSizeSwap(active) {
     Object.values(clientState.result).forEach(item => {
         // Filter to only atsize items
         if (item.type !== 'atsize') return;

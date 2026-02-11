@@ -1,9 +1,9 @@
 import { clientState } from './client.state.js';
 import { _device } from './config.base.js';
-import { initializeSwaps, performSwap } from './at-size/at-size.js';
-import { initializeUpToSizeSwaps, performUpToSizeSwap } from './up-to-size/up-to-size.js';
-import { initializeFromSizeSwaps, performFromSizeSwap } from './from-size/from-size.js';
-import { initializeWithinSizeRangeSwaps, performWithinSizeRangeSwap } from './within-size-range/within-size-range.js';
+import { initializeAtSizeSwaps, performAtSizeSwap } from './@replace-sibling/at-size.js';
+import { initializeUpToSizeSwaps, performUpToSizeSwap } from './@replace-sibling/up-to-size.js';
+import { initializeFromSizeSwaps, performFromSizeSwap } from './@replace-sibling/from-size.js';
+import { initializeWithinSizeRangeSwaps, performWithinSizeRangeSwap } from './@replace-sibling/within-size-range.js';
 
 function watchBreakpoints(config, callback) {
   // Convert object to a sorted array to ensure we calculate ranges correctly
@@ -45,13 +45,13 @@ function watchBreakpoints(config, callback) {
 // Initialize swaps when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        initializeSwaps();
+        initializeAtSizeSwaps();
         initializeUpToSizeSwaps();
         initializeFromSizeSwaps();
         initializeWithinSizeRangeSwaps();
     });
 } else {
-    initializeSwaps();
+    initializeAtSizeSwaps();
     initializeUpToSizeSwaps();
     initializeFromSizeSwaps();
     initializeWithinSizeRangeSwaps();
@@ -66,7 +66,7 @@ watchBreakpoints(_device.sizes, (active) => {
     document.body.setAttribute('data-breakpoint', active.name);
     document.body.setAttribute('data-swap-ready', 'true');
 
-    performSwap(active);
+    performAtSizeSwap(active);
     performUpToSizeSwap(active);
     performFromSizeSwap(active);
     performWithinSizeRangeSwap(active);

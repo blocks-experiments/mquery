@@ -1,0 +1,12 @@
+
+/* Hide swap elements until ready */
+[replacesibling],
+[refelem] {
+    display: none;
+}
+
+/* Show them when swap system is initialized */
+body[data-swap-ready="true"] [replacesibling],
+body[data-swap-ready="true"] [refelem] {
+    display: block; /* adjust to flex/grid as needed */
+}

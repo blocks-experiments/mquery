@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+
+    
+    <!-- // This is for "atsize" do not touch -->
+    <!-- 
+        This means replace this div with nav sibling in the DOM, only on the smallest device 1:
+        <div replaceSibling="nav" atSize="1">Content here</div>
+    -->
+    <!-- <header>
+        <nav refelem="navElem">NAV element</nav>
+        <div replacesibling="navElem" atsize="1">DIV element</div>
+    </header>
+    <main>
+        <aside refelem="asideElem">ASIDE element</aside>
+        <section replacesibling="asideElem" atsize="3">SECTION element</section>
+    </main> -->
+
+
+    <!-- // This is for "upToSize"  do not touch-->
+    <!-- 
+        This means replace this div with nav sibling in the DOM, from the smallest device 1 up to device 3:
+        e.g. <div replaceSibling="nav" uptosize="3">Content here</div>
+    -->
+    <!-- <header>
+        <nav refelem="navElem">NAV element</nav>
+        <div replacesibling="navElem" uptosize="2">DIV element</div>
+    </header>
+    <main>
+        <aside refelem="asideElem">ASIDE element</aside>
+        <section replacesibling="asideElem" uptosize="3">SECTION element</section>
+    </main> -->
+
+    <!-- // This is for "fromsize" do not touch-->
+    <!-- 
+        This means replace this div with nav sibling in the DOM, from device 3 to the biggest device 5:
+        e.g. <div replaceSibling="nav" fromsize="3">Content here</div>
+    -->
+    <!-- <header>
+        <nav refelem="navElem">NAV element</nav>
+        <div replacesibling="navElem" fromsize="2">DIV element</div>
+    </header>
+    <main>
+        <aside refelem="asideElem">ASIDE element</aside>
+        <section replacesibling="asideElem" fromsize="3">SECTION element</section>
+    </main> -->
+
+    <!-- // This is for "withinSizeRange" do not touch-->
+    <!-- 
+        This means replace this div with nav sibling in the DOM, within a size range that is not at the "extreme ends" (for example if there are 5 device sizes then 1 and 5 cannot be used):
+        <div replaceSibling="nav" withinSizeRange="2-3">Content here</div>
+    -->
+    <!-- <header>
+        <nav refelem="navElem">NAV element</nav>
+        <div replacesibling="navElem" withinSizeRange="2-4">DIV element</div>
+    </header>
+    <main>
+        <aside refelem="asideElem">ASIDE element</aside>
+        <section replacesibling="asideElem" withinSizeRange="3-4">SECTION element</section>
+    </main> -->
+
+    
+    
+    <!-- // This is for (button) toggle functionality using dommanipulate with refElemToggle-->
+    <!-- -->
+    <button dommanipulate="appSideBar" triggertype="on">[Toggle] HamBurger</button>
+    <aside refElemToggle="appSideBar">
+        <div>ASIDE inner-DIV <button dommanipulate="appSideBar" triggertype="off">[Toggle] Close</button></div>
+        <nav>NAV</nav>
+    </aside>
+    <button dommanipulate="appSideBar" triggertype="off">[Toggle] Close 2</button></div>
+    <section refElemToggle="appSideBar">SECTION - Miracle no dey tire Jesus!</section>
+
+    <button dommanipulate="mySection" triggertype="on">[Toggle] Another HamBurger 1</button>
+    <button dommanipulate="mySection" triggertype="off">[Toggle] Another Close</button>
+    <section refElemToggle="mySection">My SECtion</section>
+    <button dommanipulate="mySection" triggertype="on">[Toggle] Another HamBurger 2</button>
+
+    <br>
+
+    <button dommanipulate="testSection" triggertype="on">[Toggle] TEST HamBurger 1</button>
+    <button dommanipulate="testSection" triggertype="on">[Toggle] TEST HamBurger 2</button>
+    <button dommanipulate="testSection" triggertype="on">[Toggle] TEST HamBurger 3</button>
+
+    <button dommanipulate="testSection" triggertype="off">[Toggle] Test Close 1</button>
+    <section refElemToggle="testSection">Test SECtion 1</section>
+    <button dommanipulate="testSection" triggertype="off">[Toggle] Test Close 2</button>
+    <section refElemToggle="testSection">Test SECtion 2</section>
+    <button dommanipulate="testSection" triggertype="off">[Toggle] Test Close 3</button>
+    <section refElemToggle="testSection">Test SECtion 3</section>
+
+    <script type="module" src="./main.js"></script>
+
+</body>
+</html>

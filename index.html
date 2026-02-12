@@ -45,6 +45,10 @@
         e.g. <div replaceSibling="nav" fromsize="3">Content here</div>
     -->
     <!-- <header>
+        <nav refelem="appSideBar">NAV element</nav>
+        <div replacesibling="appSideBar" fromsize="2">DIV element</div>
+    </header> -->
+    <!-- <header>
         <nav refelem="navElem">NAV element</nav>
         <div replacesibling="navElem" fromsize="2">DIV element</div>
     </header>
@@ -67,17 +71,18 @@
         <section replacesibling="asideElem" withinSizeRange="3-4">SECTION element</section>
     </main> -->
 
+    <!-- <hr> -->
     
     
     <!-- // This is for (button) toggle functionality using dommanipulate with refElemToggle-->
     <!-- -->
-    <button dommanipulate="appSideBar" triggertype="on">[Toggle] HamBurger</button>
+    <!-- <button dommanipulate="appSideBar" triggertype="on">[Toggle] HamBurger</button>
     <aside refElemToggle="appSideBar">
         <div>ASIDE inner-DIV <button dommanipulate="appSideBar" triggertype="off">[Toggle] Close</button></div>
         <nav>NAV</nav>
-    </aside>
+    </aside> -->
 
-    <hr>
+    <!-- <hr>
 
     <button dommanipulate="mySection" triggertype="on">[Toggle] Another HamBurger</button>
     <button dommanipulate="mySection" triggertype="off">[Toggle] Another Close</button>
@@ -87,7 +92,89 @@
 
     <button dommanipulate="testSection" triggertype="on">[Toggle] TEST HamBurger</button>
     <button dommanipulate="testSection" triggertype="off">[Toggle] Test Close</button>
-    <section refElemToggle="testSection">Test SECtion</section>
+    <section refElemToggle="testSection">Test SECtion</section> -->
+
+    <!-- <hr> -->
+
+    <header>
+        <nav refelem="headerInner">[Desktop] NAV - e.g. 3 & above device sizes</nav>
+        <div replacesibling="headerInner" uptosize="2">[Smaller Devices] DIV - e.g. 2 & below device sizes<button dommanipulate="appSideBar" triggertype="on">[Toggle] HamBurger</button></div>
+    </header>
+    <aside refElemToggle="appSideBar">
+        <div>ASIDE inner-DIV <button dommanipulate="appSideBar" triggertype="off">[Toggle] Close</button></div>
+        <nav>NAV - e.g. 2 & below device sizes</nav>
+    </aside>
+
+    <hr>
+
+    <header>
+        <nav refelem="headerInner2">[Desktop] NAV 2 - e.g. 3 & above device sizes</nav>
+        <div replacesibling="headerInner2" uptosize="2">[Smaller Devices] DIV 2 - e.g. 2 & below device sizes<button dommanipulate="appSideBar2" triggertype="on">[Toggle 2] HamBurger</button><button refelem="headerInner2" dommanipulate="appSideBar2" triggertype="off">[Toggle 2] Close</button></div>
+    </header>
+    <aside refElemToggle="appSideBar2">
+        <div>ASIDE 2 inner-DIV</div>
+        <nav>NAV 2 - e.g. 2 & below device sizes</nav>
+    </aside>
+
+    <hr>
+
+    <header>
+        <nav refelem="headerInner3">[Desktop] NAV 3 - e.g. 3 & above device sizes</nav>
+        <div replacesibling="headerInner3" uptosize="2">[Smaller Devices] DIV 3 - e.g. 2 & below device sizes<button dommanipulate="appSideBar3" triggertype="on">[Toggle 3] HamBurger</button><button refelem="headerInner3" dommanipulate="appSideBar3" triggertype="off">[Toggle 3] Close</button></div>
+    </header>
+    <aside refElemToggle="appSideBar3">
+        <div>ASIDE 3 inner-DIV</div>
+        <nav>NAV 3 - e.g. 2 & below device sizes</nav>
+    </aside>
+
+    <hr>
+
+    <header>
+        <nav refelem="headerInner4">[Desktop] NAV 4 - e.g. 3 & above device sizes</nav>
+        <button dommanipulate="appSideBar4" triggertype="on">[Toggle 4] HamBurger</button>
+        <div replacesibling="headerInner4" uptosize="2">[Smaller Devices] DIV 4 - e.g. 2 & below device sizes<button refelem="headerInner4" dommanipulate="appSideBar4" triggertype="off">[Toggle 4] Close</button></div>
+    </header>
+    <aside refElemToggle="appSideBar4">
+        <div>ASIDE 4 inner-DIV</div>
+        <nav>NAV 4 - e.g. 2 & below device sizes</nav>
+    </aside>
+
+    <!-- <hr> -->
+
+    <!-- 
+    // Works correctly (toggle buttons & refElemToggle will only be affected on click, and not on resize)
+    <header>
+        <nav refelem="headerInner5">[Desktop] NAV 5 - e.g. 3 & above device sizes</nav>
+        <button dommanipulate="appSideBar5" triggertype="on">[Toggle 5] HamBurger</button>
+        <div replacesibling="headerInner5" uptosize="2">[Smaller Devices] DIV 5 - e.g. 2 & below device sizes</div>
+        <button refelem="headerInner5" dommanipulate="appSideBar5" triggertype="off">[Toggle 5] Close</button>
+    </header>
+    <aside refElemToggle="appSideBar5">
+        <div>ASIDE 5 inner-DIV</div>
+        <nav>NAV 5 - e.g. 2 & below device sizes</nav>
+    </aside> -->
+
+    <!-- <hr>
+
+
+    <header>
+        <nav refelem="headerInner6">[Desktop] NAV 6 - e.g. 3 & above device sizes</nav>
+        <div replacesibling="headerInner6" uptosize="2">[Smaller Devices] DIV 6 - e.g. 2 & below device sizes</div>
+    </header>
+    <button dommanipulate="appSideBar6" triggertype="on">[Toggle 6] HamBurger</button>
+    <button refelem="headerInner6" dommanipulate="appSideBar6" triggertype="off">[Toggle 6] Close</button>
+    <aside refElemToggle="appSideBar6">
+
+        <div>ASIDE 6 inner-DIV</div>
+        <nav>NAV 6 - e.g. 2 & below device sizes</nav>
+    </aside> -->
+    
+
+    <!-- <hr> -->
+
+    <!-- <button dommanipulate="testSection" triggertype="on">[Toggle] TEST HamBurger</button>
+    <button dommanipulate="testSection" triggertype="off">[Toggle] Test Close</button>
+    <section refElemToggle="testSection">Test SECtion</section> -->
 
     <script type="module" src="./main.js"></script>
 

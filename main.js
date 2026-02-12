@@ -4,7 +4,7 @@ import { initializeAtSizeSwaps, performAtSizeSwap } from './@replace-sibling/at-
 import { initializeUpToSizeSwaps, performUpToSizeSwap } from './@replace-sibling/up-to-size.js';
 import { initializeFromSizeSwaps, performFromSizeSwap } from './@replace-sibling/from-size.js';
 import { initializeWithinSizeRangeSwaps, performWithinSizeRangeSwap } from './@replace-sibling/within-size-range.js';
-import { initializeDomManipulate, storeButtonData } from './dom-manipulate/dom-manipulate.js';
+import { initializeDomManipulate, storeButtonData, handleToggleOnBreakpointChange } from './dom-manipulate/dom-manipulate.js';
 import { validateDomManipulatePairs } from './validate.js';
 
 function watchBreakpoints(config, callback) {
@@ -53,12 +53,14 @@ if (document.readyState === 'loading') {
         // Validate DOM manipulate pairs
         validateDomManipulatePairs();
 
+        initializeDomManipulate();
+
         // Initialize all systems
         initializeAtSizeSwaps();
         initializeUpToSizeSwaps();
         initializeFromSizeSwaps();
         initializeWithinSizeRangeSwaps();
-        initializeDomManipulate();
+
         
         // Set ready flag to show initially hidden elements
         document.body.setAttribute('data-dom-ready', 'true');
@@ -66,12 +68,13 @@ if (document.readyState === 'loading') {
 } else {
     storeButtonData();
     validateDomManipulatePairs();
+    initializeDomManipulate();
+
     initializeAtSizeSwaps();
     initializeUpToSizeSwaps();
     initializeFromSizeSwaps();
     initializeWithinSizeRangeSwaps();
-    initializeDomManipulate();
-    
+
     // Set ready flag to show initially hidden elements
     document.body.setAttribute('data-dom-ready', 'true');
 }
@@ -89,4 +92,7 @@ watchBreakpoints(_device.sizes, (active) => {
     performUpToSizeSwap(active);
     performFromSizeSwap(active);
     performWithinSizeRangeSwap(active);
+    
+    // Handle toggle state preservation on breakpoint changes
+    handleToggleOnBreakpointChange(active);
 });

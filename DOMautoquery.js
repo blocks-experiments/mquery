@@ -1,7 +1,8 @@
 import { breakpointsWatcher } from './breakpoints.watcher.js';
 import { initializeSiblingSwap, performSiblingSwap } from './queries/replacesibling.js';
+import { swapsize } from './var.js';
 
-const deviceSizeAttributeTypes = ['atsize', 'fromsize', 'uptosize', 'withinsizerange'];
+const deviceSizeAttributeTypes = Object.values(swapsize);
 
 const initializeAllSiblingSwaps = () => {
     deviceSizeAttributeTypes.forEach((deviceSizeAttributeType) => {

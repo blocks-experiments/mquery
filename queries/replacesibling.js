@@ -1,6 +1,6 @@
 import { domState } from '../dom.state.js';
 import { validateSiblingSwapPairs } from '../validate.js';
-import { instructionAttribute } from '../var.js';
+import { instructionAttribute, swapsize } from '../var.js';
 
 // ------------------------------------------------------------------------
 // INITIALIZATION: Build swap state in clientState BEFORE starting watchers
@@ -32,29 +32,29 @@ export const initializeSiblingSwap = ({ deviceSizeAttributeType }) => {
                 _sizeAttributeType: deviceSizeAttributeType,
             };
             //-
-            if (deviceSizeAttributeType === 'atsize') {
+            if (deviceSizeAttributeType === swapsize.AT) {
                 swapObj = {
                     ...swapObj,
                     atsize: parseInt(replacerElem.getAttribute(deviceSizeAttributeType)),
                 };
             }
-            if (deviceSizeAttributeType === 'uptosize') {
+            if (deviceSizeAttributeType === swapsize.UPTO) {
                 swapObj = {
                     ...swapObj,
                     uptosize: parseInt(replacerElem.getAttribute(deviceSizeAttributeType)),
                 };
             }
-            if (deviceSizeAttributeType === 'fromsize') {
+            if (deviceSizeAttributeType === swapsize.FROM) {
                 swapObj = {
                     ...swapObj,
                     fromsize: parseInt(replacerElem.getAttribute(deviceSizeAttributeType)),
                 };
             }
-            if (deviceSizeAttributeType === 'withinsizerange') {
+            if (deviceSizeAttributeType === swapsize.WITHINRANGE) {
                 //----------------------------------------
                 // Parse e.g. range "2-4" into min and max
                 //----------------------------------------
-                const rangeStr = replacerElem.getAttribute('withinsizerange');
+                const rangeStr = replacerElem.getAttribute(swapsize.WITHINRANGE);
                 const [minSize, maxSize] = rangeStr.split('-').map(Number);
 
                 swapObj = {
